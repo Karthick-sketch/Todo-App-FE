@@ -1,0 +1,29 @@
+.Home-title {
+  margin-bottom: 1.875rem;
+}
+
+.Home-links {
+  margin-left: 1.25rem;
+}
+
+.Home-authenticate {
+  font-size: 1.125rem;
+  margin-bottom: 1.25rem;
+}
+
+/* .Flash-error {
+  color: darkred;
+  background-color: #f8d7da;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 12px;
+  margin-bottom: 20px;
+} */
+
+@media screen and (max-width: 480px) {
+  .Home-container {
+    position: relative;
+    top: 9.375rem;
+    text-align: center;
+  }
+}
