@@ -18,13 +18,53 @@
     margin-left: 8px;
 }
 
-.AddTodo {
+.todo-page-content {
     display: flex;
     justify-content: space-between;
 }
 
+.todo-item-content {
+    width: 83%;
+    height: 53rem;
+    padding-left: 1rem;
+    padding-top: 1rem;
+    background-color: #f1edf7;
+}
+
+.todo-section {
+    width: 15%;
+    height: 54rem;
+    padding-left: 10px;
+    background-color: #e5d5fa;
+}
+
+.todo-section h2 {
+    color: #453c52;
+}
+
+.todo-section-list {
+    padding-left: 1rem;
+    list-style: none;
+}
+
+.todo-section-title {
+    color: gray;
+    font-size: 1.25rem;
+    text-decoration: none;
+}
+
+.todo-section-list li {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.todo-section-title:hover {
+    color: #453c52;
+    font-weight: bold;
+}
+
 .AddTodo-text {
-    width: 50%;
+    width: 25%;
     color: #453c52;
     font-size: 14px;
     border: 1px solid grey;

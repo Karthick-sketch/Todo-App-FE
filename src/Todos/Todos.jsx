@@ -4,27 +4,32 @@ import axios from 'axios';
 import AddTodoForm from './components/AddTodoForm';
 import TodoCategory from './components/TodoCategory'
 import './Todos.css';
+import TodoSection from './components/TodoSection';
 
 const api = axios.create({ baseURL: "http://localhost:8080/" });
 
-function Todos() {
+function Todos(props) {
   const navigate = useNavigate();
 
-  const today = (new Date()).getTime();
-  const [overdue, setOverdue] = useState([]);
-  const [due_today, setDueToday] = useState([]);
-  const [due_later, setDueLater] = useState([]);
+  const [todos, setTodos] = useState([]);
+  const [sectionId, setSectionId] = useState(props.sectionId);
 
   function navigateTo(path) { navigate(path); }
 
+/* here */
+
   useEffect(() => {
-    if (localStorage.getItem("user_id") != null) {
-      if (getUser()) { getTodos(); }
-      else { navigateTo("/signin"); }
+    if (sectionId !== props.sectionId) {
+      console.log(sectionId);
+      getTodos();
+      setSectionId(props.sectionId);
+    }
+    if (localStorage.getItem("user_id") != null && verifyUser()) {
+      getTodos();
     } else { navigateTo("/signin"); }
   }, []);
 
-  async function getUser() {
+  async function verifyUser() {
     try {
       let user_id = localStorage.getItem("user_id");
       if (user_id !== null) {
@@ -39,11 +44,8 @@ function Todos() {
 
   async function getTodos() {
     try {
-      let data = await api.get(`todos/${localStorage.getItem("user_id")}`).then(({data}) => data.data);
-      console.log(data);
-      setOverdue(data.filter(todo => todo.dueDate < today));
-      setDueToday(data.filter(todo => todo.dueDate === today));
-      setDueLater(data.filter(todo => todo.dueDate > today));
+      let data = await api.get(`todos/${sectionId}/${localStorage.getItem("user_id")}`).then(({data}) => data.data);
+      setTodos(data);
     } catch(error) { console.log(error); }
   }
 
@@ -58,13 +60,14 @@ function Todos() {
         <h1>{localStorage.getItem("user_name")}'s To-do List</h1>
         <Link to="/signin" onClick={handleSignout} className="Signout-button">Sign out</Link>
       </div>
-        <hr/>
-      <div className="TodoPage-content">
-        <AddTodoForm data={getTodos}/> <br/>
-        <div>
-          <TodoCategory getRequest={getTodos} data={overdue} name="Overdue" value={true}/>
-          <TodoCategory getRequest={getTodos} data={due_today} name="Due Today" value={false}/>
-          <TodoCategory getRequest={getTodos} data={due_later} name="Due Later" value={true}/>
+      <hr/>
+      <div className='todo-page-content'>
+        <TodoSection/>
+        <div className="todo-item-content">
+          <AddTodoForm data={getTodos}/> <br/>
+          <div>
+            <TodoCategory getRequest={getTodos} data={todos} name={props.section} value={true}/>
+          </div>
         </div>
       </div>
     </article>

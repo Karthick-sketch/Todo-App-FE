@@ -33,7 +33,7 @@ export default function TodoItems(props) {
           {isNotToday(todo.dueDate)}
         </div>
         <button className="TodoItem-delete" onClick={() => handleDelete(todo.id)}>
-          <img src="./src/assets/cross.svg" alt="Delete todo"/>
+          <img src="../src/assets/cross.svg" alt="Delete todo"/>
         </button>
       </label>
     </li>
