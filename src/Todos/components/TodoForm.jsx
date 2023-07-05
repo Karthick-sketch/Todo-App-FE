@@ -1,14 +1,17 @@
+import axios from 'axios';
 import React from 'react';
 
-class AddTodoForm extends React.Component {
-  state = { title: "", dueDate: "", user_id: localStorage.getItem("user_id") }
+const api = axios.create({ baseURL: "http://localhost:8080/" });
+
+class TodoForm extends React.Component {
+  state = { title: "", dueDate: "", userId: Number(localStorage.getItem("user_id")) }
 
   handleSubmit = async () => {
     if (this.state.title !== "" && this.state.dueDate !== "") {
       try {
         let res = await api.post("todo", this.state);
         if (res.status === 200) {
-          this.props.data();
+          this.props.data(this.props.secId);
           document.getElementsByClassName('AddTodo-text')[0].value = "";
           document.getElementsByClassName('AddTodo-date')[0].value = "";
         }
@@ -22,7 +25,9 @@ class AddTodoForm extends React.Component {
   }
 
   handleDueDate = (e) => {
-    this.setState({ dueDate: e.target.value });
+    let dts = e.target.value.split('-');
+    let date = new Date(dts[0], dts[1]-1, dts[2]);
+    this.setState({ dueDate: date.getTime() });
     e.preventDefault();
   }
 
@@ -37,4 +42,4 @@ class AddTodoForm extends React.Component {
   }
 }
 
-export default AddTodoForm;
+export default TodoForm;

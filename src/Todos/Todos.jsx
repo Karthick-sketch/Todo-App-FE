@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import AddTodoForm from './components/AddTodoForm';
-import TodoCategory from './components/TodoCategory'
 import './Todos.css';
+import TodoForm from './components/TodoForm';
+import TodoCategory from './components/TodoCategory'
 import TodoSection from './components/TodoSection';
 
 const api = axios.create({ baseURL: "http://localhost:8080/" });
@@ -12,23 +12,21 @@ function Todos(props) {
   const navigate = useNavigate();
 
   const [todos, setTodos] = useState([]);
-  const [sectionId, setSectionId] = useState(props.sectionId);
 
   function navigateTo(path) { navigate(path); }
 
 /* here */
 
   useEffect(() => {
-    if (sectionId !== props.sectionId) {
-      console.log(sectionId);
-      getTodos();
-      setSectionId(props.sectionId);
-    }
+    getTodos(props.sectionId);
+    /*
     if (localStorage.getItem("user_id") != null && verifyUser()) {
       getTodos();
     } else { navigateTo("/signin"); }
-  }, []);
+    */
+  }, [props.sectionId]);
 
+  /*
   async function verifyUser() {
     try {
       let user_id = localStorage.getItem("user_id");
@@ -41,10 +39,11 @@ function Todos(props) {
     } catch (error) { console.log(error); }
     return false;
   }
+  */
 
-  async function getTodos() {
+  async function getTodos(secId) {
     try {
-      let data = await api.get(`todos/${sectionId}/${localStorage.getItem("user_id")}`).then(({data}) => data.data);
+      let data = await api.get(`todos/${secId}/${localStorage.getItem("user_id")}`).then(({data}) => data.data);
       setTodos(data);
     } catch(error) { console.log(error); }
   }
@@ -64,9 +63,9 @@ function Todos(props) {
       <div className='todo-page-content'>
         <TodoSection/>
         <div className="todo-item-content">
-          <AddTodoForm data={getTodos}/> <br/>
+          <TodoForm data={getTodos} secId={props.sectionId}/> <br/>
           <div>
-            <TodoCategory getRequest={getTodos} data={todos} name={props.section} value={true}/>
+            <TodoCategory getRequest={getTodos} secId={props.sectionId} data={todos} name={props.section} value={true}/>
           </div>
         </div>
       </div>
