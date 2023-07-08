@@ -64,7 +64,6 @@ function Todos(props) {
           Sign out
         </Link>
       </div>
-      <hr />
       <div className="todo-page-content">
         <TodoSection />
         <div className="todo-item-content">

@@ -2,6 +2,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #54938d;
+    border: 1px #477d78;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.Todo-head h1 {
+    color: white;
 }
 
 .Signout-button {
@@ -25,17 +33,18 @@
 
 .todo-item-content {
     width: 83%;
-    height: 53rem;
+    height: 54.25rem;
     padding-left: 1rem;
     padding-top: 1rem;
     background-color: #edf7f6;
 }
 
 .todo-section {
-    width: 15%;
-    height: 54rem;
+    width: 15.5%;
+    height: 55.25rem;
     padding-left: 10px;
     background-color: #85b7b2;
+    border: #729d99;
 }
 
 .todo-section h2 {
@@ -66,7 +75,7 @@
 .AddTodo-text {
     width: 25%;
     color: #453c52;
-    font-size: 14px;
+    font-size: 1rem;
     border: 1px solid grey;
     border-radius: 4px;
     padding: 6px 12px;
@@ -75,7 +84,7 @@
 
 .AddTodo-date {
     color: #453c52;
-    font-size: 14px;
+    font-size: 1rem;
     border: 1px solid grey;
     border-radius: 4px;
     padding: 6px;
@@ -83,7 +92,7 @@
 }
 
 .AddTodo-button {
-    font-size: 14px;
+    font-size: 1rem;
     color: white;
     background-color: #48bb78;
     border: 1px solid transparent;
