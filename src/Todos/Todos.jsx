@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import './Todos.css';
-import TodoForm from './components/TodoForm';
-import TodoCategory from './components/TodoCategory'
-import TodoSection from './components/TodoSection';
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import "./Todos.css";
+import TodoForm from "./components/TodoForm";
+import TodoCategory from "./components/TodoCategory";
+import TodoSection from "./components/TodoSection";
 
 const api = axios.create({ baseURL: "http://localhost:8080/" });
 
@@ -13,20 +13,18 @@ function Todos(props) {
 
   const [todos, setTodos] = useState([]);
 
-  function navigateTo(path) { navigate(path); }
-
-/* here */
+  function navigateTo(path) {
+    navigate(path);
+  }
 
   useEffect(() => {
-    getTodos(props.sectionId);
-    /*
     if (localStorage.getItem("user_id") != null && verifyUser()) {
-      getTodos();
-    } else { navigateTo("/signin"); }
-    */
+      getTodos(props.sectionId);
+    } else {
+      navigateTo("/signin");
+    }
   }, [props.sectionId]);
 
-  /*
   async function verifyUser() {
     try {
       let user_id = localStorage.getItem("user_id");
@@ -36,16 +34,21 @@ function Todos(props) {
           return true;
         }
       }
-    } catch (error) { console.log(error); }
+    } catch (error) {
+      console.log(error);
+    }
     return false;
   }
-  */
 
   async function getTodos(secId) {
     try {
-      let data = await api.get(`todos/${secId}/${localStorage.getItem("user_id")}`).then(({data}) => data.data);
+      let data = await api
+        .get(`todos/${secId}/${localStorage.getItem("user_id")}`)
+        .then(({ data }) => data.data);
       setTodos(data);
-    } catch(error) { console.log(error); }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   function handleSignout() {
@@ -57,15 +60,23 @@ function Todos(props) {
     <article className="Todo-container">
       <div className="Todo-head">
         <h1>{localStorage.getItem("user_name")}'s To-do List</h1>
-        <Link to="/signin" onClick={handleSignout} className="Signout-button">Sign out</Link>
+        <Link to="/signin" onClick={handleSignout} className="Signout-button">
+          Sign out
+        </Link>
       </div>
-      <hr/>
-      <div className='todo-page-content'>
-        <TodoSection/>
+      <hr />
+      <div className="todo-page-content">
+        <TodoSection />
         <div className="todo-item-content">
-          <TodoForm data={getTodos} secId={props.sectionId}/> <br/>
+          <TodoForm data={getTodos} secId={props.sectionId} /> <br />
           <div>
-            <TodoCategory getRequest={getTodos} secId={props.sectionId} data={todos} name={props.section} value={true}/>
+            <TodoCategory
+              getRequest={getTodos}
+              secId={props.sectionId}
+              data={todos}
+              name={props.section}
+              value={props.sectionId !== "1"}
+            />
           </div>
         </div>
       </div>
