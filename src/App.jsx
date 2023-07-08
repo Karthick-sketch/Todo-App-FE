@@ -9,6 +9,7 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path='/' to='/todos/duetoday' />
         <Route path='/signup' element={<Signup/>} />
         <Route path='/signin' element={<Signin/>} />
         <Route path='/todos/duetoday' element={<Todos sectionId='1' section='Due Today'/>} />
