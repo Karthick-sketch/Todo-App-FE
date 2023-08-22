@@ -8,6 +8,7 @@ const api = axios.create({ baseURL: "http://localhost:8080/" });
 
 export default function Signin() {
   const redirect = useNavigate();
+
   async function handleSubmit() {
     try {
       let cred = {
@@ -26,7 +27,7 @@ export default function Signin() {
         }
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 
@@ -36,7 +37,7 @@ export default function Signin() {
       <section className="UsersNew">
         <FormField type="email" title="email" />
         <FormField type="password" title="password" />
-        <FormSubmit title="Sign In" onClick={handleSubmit} />
+        <FormSubmit title="Sign In" handleSubmit={handleSubmit} />
         <Link to="/signup">Create new account</Link>
       </section>
     </div>

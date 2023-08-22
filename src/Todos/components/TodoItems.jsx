@@ -29,7 +29,9 @@ export default function TodoItems(props) {
     return (
       <>
         {props.value && (
-          <p className="TodoItem-dueDate">{new Date(dueDate).toDateString()}</p>
+          <span className="TodoItem-dueDate">
+            {new Date(dueDate).toDateString()}
+          </span>
         )}
       </>
     );
@@ -48,7 +50,7 @@ export default function TodoItems(props) {
             checked={todo.status}
           />
           <p>{todo.title}</p>
-          <span>{isNotToday(todo.dueDate)}</span>
+          {isNotToday(todo.dueDate)}
         </div>
         <button
           className="TodoItem-delete"

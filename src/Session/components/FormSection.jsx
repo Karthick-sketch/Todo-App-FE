@@ -1,22 +1,17 @@
-function FormField(props) {
+function FormField({ type, title }) {
   return (
     <div className="Form-section">
-      <p className="FormInput-label">{props.title}:</p>
-      <input
-        type={props.type}
-        id={props.title}
-        className="Form-input"
-        autoFocus
-      />
+      <p className="FormInput-label">{title}:</p>
+      <input type={type} id={title} className="Form-input" autoFocus />
     </div>
   );
 }
 
-function FormSubmit(props) {
+function FormSubmit({ title, handleSubmit }) {
   return (
     <div className="Form-section">
-      <button className="Form-submit" onClick={props.handleSubmit}>
-        {props.title}
+      <button className="Form-submit" onClick={handleSubmit}>
+        {title}
       </button>
     </div>
   );
