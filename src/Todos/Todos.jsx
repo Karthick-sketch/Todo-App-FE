@@ -68,15 +68,13 @@ function Todos(props) {
         <TodoSection />
         <div className="todo-item-content">
           <TodoForm data={getTodos} secId={props.sectionId} /> <br />
-          <div>
-            <TodoCategory
-              getRequest={getTodos}
-              secId={props.sectionId}
-              data={todos}
-              name={props.section}
-              value={props.sectionId !== "1"}
-            />
-          </div>
+          <TodoCategory
+            getRequest={getTodos}
+            secId={props.sectionId}
+            data={todos}
+            name={props.section}
+            value={props.sectionId !== "1"}
+          />
         </div>
       </div>
     </article>

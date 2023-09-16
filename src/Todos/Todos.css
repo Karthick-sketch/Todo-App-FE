@@ -1,157 +1,157 @@
 .Todo-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #54938d;
-    border: 1px #477d78;
-    padding-left: 8px;
-    padding-right: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #54938d;
+  border: 1px #477d78;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .Todo-head h1 {
-    color: white;
+  color: white;
 }
 
 .Signout-button {
-    color: white;
-    text-decoration: none;
-    background-color: #eb465a;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    padding: 8px 1rem;
+  color: white;
+  text-decoration: none;
+  background-color: #eb465a;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 8px 1rem;
 }
 
 .TodoPage-content {
-    margin-top: 1.25rem;
-    margin-left: 8px;
+  margin-top: 1.25rem;
+  margin-left: 8px;
 }
 
 .todo-page-content {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .todo-item-content {
-    width: 83%;
-    height: 54.25rem;
-    padding-left: 1rem;
-    padding-top: 1rem;
-    background-color: #edf7f6;
+  height: 54.25rem;
+  padding-left: 1rem;
+  padding-top: 1rem;
+  background-color: #edf7f6;
+  flex: 6;
 }
 
 .todo-section {
-    width: 15.5%;
-    height: 55.25rem;
-    padding-left: 10px;
-    background-color: #85b7b2;
-    border: #729d99;
+  height: 55.25rem;
+  padding-left: 10px;
+  background-color: #85b7b2;
+  border: #729d99;
+  flex: 1;
 }
 
 .todo-section h2 {
-    color: white;
+  color: white;
 }
 
 .todo-section-list {
-    padding-left: 1rem;
-    list-style: none;
+  padding-left: 1rem;
+  list-style: none;
 }
 
 .todo-section-title {
-    color: #eee;
-    font-size: 1.25rem;
-    text-decoration: none;
+  color: #eee;
+  font-size: 1.25rem;
+  text-decoration: none;
 }
 
 .todo-section-list li {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .todo-section-title:hover {
-    color: white;
-    font-weight: bold;
+  color: white;
+  font-weight: bold;
 }
 
 .AddTodo-text {
-    width: 25%;
-    color: #453c52;
-    font-size: 1rem;
-    border: 1px solid grey;
-    border-radius: 4px;
-    padding: 6px 12px;
-    margin-right: 10px;
+  width: 25%;
+  color: #453c52;
+  font-size: 1rem;
+  border: 1px solid grey;
+  border-radius: 4px;
+  padding: 6px 12px;
+  margin-right: 10px;
 }
 
 .AddTodo-date {
-    color: #453c52;
-    font-size: 1rem;
-    border: 1px solid grey;
-    border-radius: 4px;
-    padding: 6px;
-    margin-right: 10px;
+  color: #453c52;
+  font-size: 1rem;
+  border: 1px solid grey;
+  border-radius: 4px;
+  padding: 6px;
+  margin-right: 10px;
 }
 
 .AddTodo-button {
-    font-size: 1rem;
-    color: white;
-    background-color: #48bb78;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    padding: 6px 22px;
+  font-size: 1rem;
+  color: white;
+  background-color: #48bb78;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 6px 22px;
 }
 
 .AddTodo-button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .TodoSectionTitle {
-    display: flex;
-    color: #453c52;
-    align-items: center;
+  display: flex;
+  color: #453c52;
+  align-items: center;
 }
 
 .TodoSectionTitle-remainingCount {
-    padding-left: 8px;
+  padding-left: 8px;
 }
 
 .TodoItem {
-    margin: 0%;
-    padding-left: 16px;
-    align-items: center;
-    list-style: none;
+  margin: 0%;
+  padding-left: 16px;
+  align-items: center;
+  list-style: none;
 }
 
 .TodoItem-container {
-    width: 95%;
-    display: inline-flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #453c52;
-    background-color: white;
-    box-shadow: 3px 3px #ddd;
-    padding: 6px 12px;
-    margin-bottom: 1rem;
+  width: 95%;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #453c52;
+  background-color: white;
+  box-shadow: 3px 3px #ddd;
+  padding: 6px 12px;
+  margin-bottom: 1rem;
 }
 
 .TodoItem-container div {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .TodoItem-checkbox {
-    width: 16px;
-    height: 16px;
-    margin-right: 10px;
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
 }
 
 .TodoItem-delete {
-    cursor: pointer;
-    border-color: transparent;
-    background-color: transparent;
+  cursor: pointer;
+  border-color: transparent;
+  background-color: transparent;
 }
 
 .TodoItem-dueDate {
-    color: #726a7e;
-    font-size: 12px;
-    margin-left: 10px;
+  color: #726a7e;
+  font-size: 12px;
+  margin-left: 10px;
 }
